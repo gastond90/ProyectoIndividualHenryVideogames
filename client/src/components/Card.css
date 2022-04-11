@@ -1,0 +1,11 @@
+.card {
+    text-decoration: none;
+    text-decoration-color: white;
+  }
+
+  .picture{
+    text-decoration: none;
+    border:5px solid;
+    border-color: white;
+    border-radius:4px;
+  }

@@ -1,0 +1,53 @@
+
+.buttonStart {
+  background-image:url(./Img/start.gif);
+  background-repeat:no-repeat;
+  height:150px;
+  width: 640px;
+  position:absolute;
+  left: 30%;
+  top: 30%;
+  background-position:center;
+  border: none; 
+  outline:none;
+
+}
+
+.land{
+  background-image: url("./Img/pacman.jpg");
+  background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+}
+
+
+.pac {
+  background-image:url(./Img/botonpac.png);
+  /* background-repeat:no-repeat; */
+  height:177px;
+  width: 755px;
+  position:absolute;
+  left: 27%;
+  top: 60%;
+  background-position:center;
+  border: none; 
+  outline:none;
+
+}
+
+.black {
+  background-image:url(./Img/botonblack.jpg);
+  /* background-repeat:no-repeat; */
+  height:500px;
+  width: 955px;
+  position:absolute;
+  left: 80%;
+  bottom: 55%;
+  background-position:center;
+  border: none; 
+  outline:none;
+
+}

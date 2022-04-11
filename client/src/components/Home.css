@@ -1,0 +1,95 @@
+@import url(https://fonts.googleapis.com/css2?family=Press+Start+2P);
+
+body {
+    background-image: url("./Img/pacman2.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+	  text-decoration: none;
+    text-decoration-color: white;
+    height: 100%;
+    width: 100%;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.content-select{
+	max-width: 400px;
+position: relative;
+  display: inline-block;
+  right: 40%;
+  font-size: large;
+}
+ 
+.content-select select{
+	font-family: 'Press Start 2P', cursive;
+    left: 675px;
+	width: 100%;
+	cursor: pointer;
+  	padding: 7px 10px;
+  	height: 50px;
+  	outline: 0; 
+  	border: 0;
+	border-radius: 0;
+	background: #000000;
+	color: #7b7b7b;
+	font-size: 1em;
+	color: rgb(255, 255, 255);
+
+	border:2px solid rgba(0,0,0,0.2);
+    position: relative;
+    transition: all 0.25s ease;
+}
+ 
+.content-select select:hover{
+	background: #7b7b7b;
+	color: rgb(255, 255, 255);
+}
+ 
+.videogames {
+        text-decoration: none;
+        margin: 100px 100px 100px 100px;
+        display: grid;
+    
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: auto;
+    
+		font-family: 'Press Start 2P', cursive;
+		text-decoration: none;
+		color: white;
+		box-shadow: none;
+	
+}
+
+a:link {
+    color: white;
+  }
+  
+  a:visited {
+    color: white;
+  }
+  
+  a:hover {
+    color: gray;
+  }
+  
+  a:active {
+    color: white;
+  }
+
+  button:hover{
+  background-color:#7b7b7b
+  }
+
+.imgerr{
+  position: absolute;
+left: 30%;
+top: 45%;
+}
+
+.deleteadores{
+	max-width: 400px;
+position: relative;
+  display: inline-block;
+  right: 0%;
+}

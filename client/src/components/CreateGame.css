@@ -1,0 +1,29 @@
+@import url(https://fonts.googleapis.com/css2?family=Press+Start+2P);
+
+/* .body {
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    font-size: larger;
+} */
+
+.formulario{
+
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    font-size: x-large;  
+}
+
+
+.errores{
+
+    font-family: 'Press Start 2P', cursive;
+    color: red;
+    font-size: small;  
+}
+
+p{
+/* right: 10%;
+    display:row;
+    position:absolute; */
+    font-size: smaller;
+}

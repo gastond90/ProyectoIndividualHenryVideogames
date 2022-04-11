@@ -1,0 +1,160 @@
+@import url(https://fonts.googleapis.com/css2?family=Press+Start+2P);
+
+
+.botonver {
+    height: auto;
+    width: auto;
+    background-position:center;
+    border: none; 
+    outline:none;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    background-color: black;
+    font-size: medium;
+  
+  }
+
+  .botoncrearjuego {
+    height:auto;
+    width:auto;
+    background-position:center;
+    border: none; 
+    outline:none;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    background-color: black;
+    font-size: medium;
+  }
+  button:hover {
+    background-color: #5c5a5af7;
+    color: white;
+  }
+
+  .botonvolver {
+    height:auto;
+    width:auto;
+    background-position:center;
+    border: none; 
+    outline:none;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    background-color: black;
+    font-size: medium;
+    position: absolute;
+    top: 30px;
+    right: 50%;
+  }
+  
+  .botoncrear {
+    height:auto;
+    width:auto;
+    background-position:center;
+    border: none; 
+    outline:none;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    background-color: black;
+    font-size: medium;
+    position: absolute;
+    right: 50%;
+    bottom: 10%;
+  }
+
+  .botonbuscar {
+    height:auto;
+    width:auto;
+    background-position:center;
+    border: none; 
+    outline:none;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    background-color: black;
+    font-size: medium;
+  }
+
+
+  .buttonOver {
+    background-image:url(./Img/continue.png);
+    background-repeat:no-repeat;
+    height:69px;
+    width: 391px;
+    position:absolute;
+    top: 60%;
+    right: 38%;
+    background-position:center;
+    border: none; 
+    outline:none;
+    background-color: black;
+  }
+  .buttonOver:hover {
+    background-color: black;
+    color: white;
+  }
+
+  .loader {
+    background-image:url(./Img/pac-man.gif);
+    background-repeat:no-repeat;
+    height:1031px;
+    width: 2062px;
+    position:absolute;
+    top: 0%;
+    right: -15%;
+    background-position: top;
+    background-color: black;
+    border: none; 
+    outline:none;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    font-size: xx-large;
+    border: none; 
+    outline:none;
+  }
+  .loader:hover {
+    background-color: #000000f7;
+    color: white;
+  }
+
+  .botondetail {
+    height:auto;
+    width:auto;
+    background-position:center;
+    border: none; 
+    outline:none;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    background-color: black;
+    font-size: medium;
+    position: absolute;
+    right: 50%;
+    
+      }
+  
+  .elegidos{
+    display: grid;
+    height:auto;
+    width:auto;
+    padding: auto;
+    background-position:center;
+    border: none; 
+    outline:none;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    background-color: black;
+    font-size: medium;
+    position: relative;
+  }
+  
+  .borragame {
+    height:auto;
+    width:auto;
+    background-position:center;
+    border: none; 
+    outline:none;
+    font-family: 'Press Start 2P', cursive;
+    color: white;
+    background-color: black;
+    font-size: large;
+    /* position: absolute;
+    right: 50%;
+    bottom: 10%; */
+  }

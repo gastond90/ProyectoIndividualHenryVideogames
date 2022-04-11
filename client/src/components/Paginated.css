@@ -1,0 +1,30 @@
+@import url(https://fonts.googleapis.com/css2?family=Press+Start+2P);
+
+
+.paginacion {
+	margin:20px 0;
+}
+
+
+.paginacion ul li {
+	display:inline-block;
+	margin-right:10px;
+	font-family: 'Press Start 2P', cursive;
+}
+
+.paginacion ul li a {
+	display:block;
+	padding:10px 20px;
+	color:rgb(255, 255, 249);
+	background:#6d761a;
+	text-decoration: none;
+}
+
+.paginacion ul li a:hover {
+	background:#5c5a5af7
+}
+
+.paginacion ul li .active {
+	background:#070707;
+	font-weight:bold;
+}
