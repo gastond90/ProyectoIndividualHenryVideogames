@@ -9,12 +9,11 @@ import "./Botones.css"
 export function Detail(){
     const dispatch = useDispatch();
     const {idVideogame} = useParams();
+    const aGame = useSelector((state) => state.detail);
 
     useEffect(() => { 
         dispatch(getDetail(idVideogame));
     },[dispatch]);
-
-    const aGame = useSelector((state) => state.detail);
 
     function handleDelete (e){
         e.preventDefault();
@@ -29,7 +28,7 @@ export function Detail(){
             {
                  
                 <div>
-                {<button class="borragame" onClick={handleDelete}>Borrar Juego</button>}
+                {idVideogame.length>6&&<button class="borragame" onClick={handleDelete}>Borrar Juego</button>}
 
                     <div class="detalle">
                     <h1>{aGame.name}</h1>

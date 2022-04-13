@@ -2,28 +2,26 @@ const { Router } = require("express");
 const { Op } = require("sequelize");
 const axios = require("axios");
 const { Videogame, Genre, Platform } = require("../db");
-//const Platform = require("../models/Platform");
 const router = Router();
 const { API_KEY } = process.env;
 
 router.get("/videogames", async (req, res, next) => {
   try {
-    const { name } = req.query; //primero trae el game si se busca por query
+    const { name } = req.query; // si se busca por name
     if (name) {
-      let gamesInDB = []; //guardo acá los que encuentre
+      let gamesInDB = []; 
 
       const nameInDB = await Videogame.findAll({
-        //busco en la DB
+        
 
-        where: { name: { [Op.iLike]: "%" + name + "%" } }, //los que tengan ese name
-
-        include: Genre, //que lo traiga también con el Genre
+        where: { name: { [Op.iLike]: "%" + name + "%" } }, 
+        include: Genre, 
 
         limit: 15,
       });
 
       if (nameInDB.length > 0) {
-        //si encontró con ese name,
+        
 
         gamesInDB = nameInDB.map((videogame) => {
           //me quedo sólo con los datos que necesito y los guardo
@@ -38,20 +36,20 @@ router.get("/videogames", async (req, res, next) => {
           };
         });
       }
-      //ahora busco en la api con el name:
+      
       const nameInApi = (
         await axios.get(
           `https://api.rawg.io/api/games?search=${name}&key=${API_KEY}`
         )
       ).data.results;
 
-      let gamesinApi = []; //acá voy a guardar los que encuentre
+      let gamesinApi = []; 
 
       if (nameInApi.length > 0) {
-        //si encontró
+        
 
         gamesinApi = nameInApi.map((videogame) => {
-          //me quedo con los datos que necesito y los guardo en el array
+         
           return {
             id: videogame.id,
             name: videogame.name,
@@ -65,24 +63,24 @@ router.get("/videogames", async (req, res, next) => {
       }
 
       let videogames = [...gamesInDB, ...gamesinApi]; //agrupo los encontrados en db y en api
-      videogames = videogames.slice(0, 15); //me quedo con solamente 15
+      videogames = videogames.slice(0, 15); 
 
       videogames.length === 0
         ? res.send(["No existe el juego"])
-        : res.send(videogames); //mando mensaje o los juegos según haya encontrado o no
+        : res.send(videogames); 
     } else {
       //si no pasé name por query me traigo todos(100)
 
-      let videogames = []; // va a ser mi RES
+      let videogames = []; 
 
       const videogamesDb = await Videogame.findAll({
-        //me traigo todos (100) de la DB
+       
         include: Genre,
         limit: 100,
       });
 
       videogamesDb.forEach((videogame) => {
-        // los pusheo al RES con los datos que necesito
+       
 
         videogames.push({
           id: videogame.id,
@@ -125,7 +123,7 @@ router.get("/videogames", async (req, res, next) => {
         .concat(PageFive);
 
       todo.forEach((videogame) => {
-        //los pusheo al arreglo con las propiedades que necesito
+        
         videogames.push({
           id: videogame.id,
           name: videogame.name,
@@ -150,15 +148,15 @@ router.get("/videogames/:idVideogame", async (req, res, next) => {
     const { idVideogame } = req.params;
 
     if (idVideogame.length > 6) {
-      //si el ID tiene mas de 6 caracteres, el juego esta en la DB
+      
       const foundInDB = await Videogame.findOne({
-        //lo busco en la DB
+       
         where: { id: idVideogame },
         include: Genre,
       });
 
       const DBGAME = {
-        //me lo guardo con los datos que quiero
+       
         id: foundInDB.id,
         name: foundInDB.name,
         image: foundInDB.image,
@@ -168,15 +166,15 @@ router.get("/videogames/:idVideogame", async (req, res, next) => {
         platforms: foundInDB.platform,
         genres: foundInDB.genres.map((gen) => gen.name),
       };
-      res.send(DBGAME); //LO MANDO
+      res.send(DBGAME); 
     } else {
-      //sino, lo busco en la api
+      
       const foundInApi = await axios.get(
         `https://api.rawg.io/api/games/${idVideogame}?key=${API_KEY}`
       );
 
       const APIGAME = {
-        //me lo guardo con los datos que quiero
+        
         id: foundInApi.data.id,
         name: foundInApi.data.name,
         image: foundInApi.data.background_image,
@@ -187,7 +185,7 @@ router.get("/videogames/:idVideogame", async (req, res, next) => {
         genres: foundInApi.data.genres.map((g) => g.name),
       };
 
-      res.send(APIGAME); //LO MANDO
+      res.send(APIGAME); 
     }
   } catch (error) {
     next(error);
@@ -208,7 +206,7 @@ router.get("/genre", async (req, res, next) => {
 
     const DBGenres = await Genre.findAll(); //una vez que tengo la DB con todos, me los traigo
 
-    res.send(DBGenres); //los mando
+    res.send(DBGenres); 
   } catch (error) {
     next(error);
   }
@@ -239,19 +237,8 @@ router.post("/videogame", async (req, res, next) => {
       newGame.addGenre(genreFound); //se lo agrego al juego creado
     });
 
-    res.send(newGame); // lo mando
-    /* let genreFound = await Genre.findAll({ where: {name: genres } });
-    newGame.addGenre(genreFound);
-
-    res.send(newGame) */
-
-    /* genres.map(async(gen)=>{
-      const genreinDb = await Genre.findOne({where: { id:gen} })
-      await newGame.addGenre(genreinDb)
-  })
-  
-   res.send(newGame);
- */
+    res.send(newGame); 
+   
   } catch (error) {
     next(error);
   }

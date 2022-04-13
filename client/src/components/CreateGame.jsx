@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from "react";
 import {Link} from 'react-router-dom';
 import { useDispatch, useSelector } from "react-redux";
-import {postVideogame, getGenres, getPlatforms} from '../actions/index';
+import {postVideogame, getGenres} from '../actions/index';
 import {plataformas} from './plataformas.js'
 import "./Botones.css"
 import "./CreateGame.css"
@@ -25,7 +25,6 @@ function validate (input){
 export function CreateGame(){
     const dispatch = useDispatch();
     const genres = useSelector((state) => state.genres);
-   /*  const platforms = useSelector((state) => state.platforms); */
     const platforms = plataformas
     const [errors, setErrors] = useState({});
     const [input, setinput] = useState({
@@ -101,10 +100,6 @@ export function CreateGame(){
     useEffect(() => {
         dispatch(getGenres())
     }, [dispatch]);
-
-  /*   useEffect(() => {
-        dispatch(getPlatforms())
-    }, [dispatch]); */
 
     return (
         <div>

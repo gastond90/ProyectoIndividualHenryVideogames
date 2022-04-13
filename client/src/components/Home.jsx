@@ -112,7 +112,6 @@ export default function Home() {
         <Paginated
           videogamesPerPage={videogamesPerPage}
           allVideogames={allVideogames.length}
-          currentPage={currentPage}
           paginated={paginated}
         />
         <div class="videogames">

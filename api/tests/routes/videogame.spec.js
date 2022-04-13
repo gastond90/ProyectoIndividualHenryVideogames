@@ -20,9 +20,5 @@ describe('Videogame routes', () => {
     it('should get 200', () =>
       agent.get('/videogames').expect(200)
     );
-    it('should return 10 Videogames', async() =>{
-      let data = await agent.get('/videogames')
-      expect(data.body).length(10)
-    })
   });
 });
