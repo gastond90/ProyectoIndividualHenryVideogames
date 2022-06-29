@@ -6,6 +6,8 @@ import {plataformas} from './plataformas.js'
 import "./Botones.css"
 import "./CreateGame.css"
 import "./Home.css"
+// ES6 Modules or TypeScript
+import Swal from 'sweetalert2'
 
 function validate (input){
     let errors = {};
@@ -57,6 +59,7 @@ export function CreateGame(){
     };
 
     function handleSelect2(e){
+        if(!input.platform.includes(e.target.value))
         setinput({
             ...input,
             platform:[...input.platform, e.target.value]
@@ -73,7 +76,13 @@ export function CreateGame(){
         if(input.genre.length === 0) {return alert('El juego debe tener al menos un género')};
         if(input.platform.length === 0) {return alert('El juego debe tener al menos una plataforma')};
         dispatch(postVideogame(input));
-        alert("Juego creado con éxito");
+        Swal.fire({
+            title: 'Vamoo!',
+            text: 'Juego creado',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+          })
+       /*  alert("Juego creado con éxito"); */
         setinput({
             image: "",
             name: "",
@@ -99,7 +108,7 @@ export function CreateGame(){
 
     useEffect(() => {
         dispatch(getGenres())
-    }, [dispatch]);
+    }, []);
 
     return (
         <div>

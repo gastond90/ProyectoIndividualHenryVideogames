@@ -7,4 +7,6 @@ export const FILTER_BY_GENRE = 'FILTER_BY_GENRE';
 export const GET_DETAIL = 'GET_DETAIL';
 export const POST_VIDEOGAME = 'POST_VIDEOGAME';
 export const GET_GENRES = 'GET_GENRES'; 
+export const TOP_5 = 'TOP_5'; 
+
 

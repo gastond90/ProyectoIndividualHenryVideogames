@@ -1,12 +1,11 @@
 import {GET_VIDEOGAMES, FILTER_BY_CREATE, ORDER_BY_NAME,ORDER_BY_RATING, FILTER_BY_NAME, 
-    FILTER_BY_GENRE, GET_DETAIL, POST_VIDEOGAME, GET_GENRES} from '../actions/constants';
+    FILTER_BY_GENRE, GET_DETAIL, POST_VIDEOGAME, GET_GENRES, TOP_5} from '../actions/constants';
 
 const initialSate = {
     videogames : [],
     allVideogames : [],
     genres: [],
-    detail: [],
-
+    detail: []
 }
 
 function rootReducer(state = initialSate, action){
@@ -76,13 +75,32 @@ function rootReducer(state = initialSate, action){
                     if(a.rating > b.rating){ return -1 }
                     if(b.rating > a.rating){ return 1 }
                     return 0;
-    
                 })
             
             return{
                     ...state,
                     videogames: orderGamesRating
                 }
+
+                case TOP_5:
+                const orderGamesRating5 = 
+                state.videogames.sort((a,b)=>{
+                    if(a.rating > b.rating){ return -1 }
+                    if(b.rating > a.rating){ return 1 }
+                    return 0;
+                })
+                /* state.videogames.sort((a,b)=>{
+                    if(a.rating > b.rating){ return 1 }
+                    if(b.rating > a.rating){ return -1 }
+                    return 0;
+                }) */
+               /*  console.log("AAAAAA",orderGamesRating5) */
+                return{
+                    ...state,
+                    videogames: orderGamesRating5.slice(0,5)
+                }
+                
+
 
     case FILTER_BY_NAME:
         return {

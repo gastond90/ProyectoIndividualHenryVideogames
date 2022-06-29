@@ -6,6 +6,8 @@ import {useDispatch, useSelector} from "react-redux";
 import "./Detail.css"
 import "./Botones.css"
 
+
+
 export function Detail(){
     const dispatch = useDispatch();
     const {idVideogame} = useParams();
@@ -13,7 +15,7 @@ export function Detail(){
 
     useEffect(() => { 
         dispatch(getDetail(idVideogame));
-    },[dispatch]);
+    },[]);
 
     function handleDelete (e){
         e.preventDefault();
@@ -24,6 +26,7 @@ export function Detail(){
 
     return(
         <div>
+           
             <div>
             {
                  

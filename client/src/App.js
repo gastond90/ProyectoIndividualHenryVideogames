@@ -6,7 +6,6 @@ import {Detail} from './components/Detail';
 import {CreateGame} from './components/CreateGame';
 import PageNotFound from './components/PageNotFound';
 
-
 function App() {
   return (
     <BrowserRouter>
@@ -17,6 +16,8 @@ function App() {
       <Route  path='/home/:idVideogame' element = {<Detail/>}/>
       <Route  path='/videogame' element={<CreateGame/>}/>
       <Route path='*' element={<PageNotFound/>}/>
+      
+      
       </Routes>
     </div>
     </BrowserRouter>

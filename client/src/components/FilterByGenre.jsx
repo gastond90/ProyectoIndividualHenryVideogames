@@ -7,6 +7,7 @@ import './Home.css'
 export function FilterByGenre(){
     const dispatch = useDispatch();
     const genres = useSelector((state) => state.genres);
+    /* console.log("LOSGENEROS", genres) */
 
     function handleChange(e) {
         dispatch(getVideogamesByGenre(e.target.value))
@@ -28,3 +29,10 @@ export function FilterByGenre(){
         </div>
     )
 }
+
+
+/* case FILTER_MOVIES_BY_GENRE:
+        return {
+            ...state,
+            peliculas: action.payload
+        };  */

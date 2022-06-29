@@ -1,6 +1,6 @@
 import axios from 'axios';
 import {GET_VIDEOGAMES, FILTER_BY_CREATE, ORDER_BY_NAME, ORDER_BY_RATING,
-    FILTER_BY_NAME, FILTER_BY_GENRE, GET_DETAIL, GET_GENRES} from './constants';
+    FILTER_BY_NAME, FILTER_BY_GENRE, GET_DETAIL, GET_GENRES, TOP_5} from './constants';
 
 export function getVideogames (){
     return async function (dispatch){
@@ -33,6 +33,17 @@ export function orderByRating (payload){
     })
 };
 
+
+export function top5 (payload){
+
+    return({
+
+        type: TOP_5,
+        payload
+    })
+
+}
+
 export function getVideogamesByName (payload) {
     return async function (dispatch) {
         try {
@@ -61,7 +72,6 @@ export function getVideogamesByGenre (payload){
         }
     }
 };
-
 
 
 

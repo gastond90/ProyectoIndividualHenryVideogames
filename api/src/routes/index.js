@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const { Op } = require("sequelize");
 const axios = require("axios");
-const { Videogame, Genre, Platform } = require("../db");
+const { Videogame, Genre } = require("../db");
 const router = Router();
 const { API_KEY } = process.env;
 
@@ -63,8 +63,8 @@ router.get("/videogames", async (req, res, next) => {
       }
 
       let videogames = [...gamesInDB, ...gamesinApi]; //agrupo los encontrados en db y en api
-      videogames = videogames.slice(0, 15); 
-
+      /* videogames = videogames.slice(0, 15); 
+ */
       videogames.length === 0
         ? res.send(["No existe el juego"])
         : res.send(videogames); 
@@ -81,7 +81,6 @@ router.get("/videogames", async (req, res, next) => {
 
       videogamesDb.forEach((videogame) => {
        
-
         videogames.push({
           id: videogame.id,
           name: videogame.name,

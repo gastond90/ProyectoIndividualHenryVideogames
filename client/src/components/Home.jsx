@@ -6,12 +6,13 @@ import {
   getCreated,
   orderByName,
   orderByRating,
+  top5,
 } from "../actions";
 import { Link } from "react-router-dom";
 import Card from "./Card";
 import { Paginated } from "./Paginated";
 import { SearchBar } from "./SearchBar";
-import { FilterByGenre } from "./prueba";
+import { FilterByGenre } from "./FilterByGenre";
 import "./Home.css"
 import "./Botones.css"
 import "./Card.css"
@@ -29,6 +30,8 @@ export default function Home() {
     indexOfFirstVideogame,
     indexOfLastVideogame
   );
+
+  console.log(allVideogames)
 
   const paginated = (pageNumber) => {
     setCurrentPage(pageNumber);
@@ -61,10 +64,23 @@ export default function Home() {
     setOrden(e.target.value);
   }
 
+function mejorescinco(){
+/*   e.preventDefault(); */
+  dispatch(top5(/* "top5" */));
+
+
+}
+
   return (
     <div class="home" >
       <div class="home">
       <div><h1></h1></div>
+
+
+       {/*  <button onClick={mejorescinco}>Top 5</button> */}
+
+
+
         <div>
           <Link to="/videogame">
             <button class= "botoncrearjuego">CREAR JUEGO</button>
@@ -80,6 +96,8 @@ export default function Home() {
         <div>
           <FilterByGenre />
         </div>
+
+      
       </div>
 
       <div>
@@ -106,6 +124,8 @@ export default function Home() {
           <option hidden={true}>Por Puntaje</option>
             <option value="Max-Min">Mejores Primero</option>
             <option value="Min-Max">Peores Primero</option>
+            {/* <option value='top5'>mejores 5</option> */}
+
           </select>
         </div>
         
@@ -125,14 +145,18 @@ export default function Home() {
           <div>
               <button class="loader">LOADING...</button>
           </div> :
-
+ 
           currentVideogames &&
             currentVideogames.map((e) => {
               return (
+                <div>
+
                 <Link class ="card" key ={e.id} to={`/home/${e.id}`}>
-                  <Card class ="card" key ={e.id} name={e.name} image={e.image} genre={e.genres?.join(",") } />
+                  <Card class ="card" key ={e.id} name={e.name} image={e.image} genre={e.genres?.join(",") } rating={e.rating}/>
                 </Link>
                 
+                </div>
+               
               );
             })}
         </div>
